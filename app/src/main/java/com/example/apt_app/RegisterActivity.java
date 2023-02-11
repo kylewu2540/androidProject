@@ -51,13 +51,18 @@ public class RegisterActivity extends AppCompatActivity {
                         connection = DriverManager.getConnection(jdbcUrl, usernameDB, passwordDB);
                         Statement statement = connection.createStatement();
 
-                        // create table
-                        String createTableSQL = "CREATE TABLE users (full_name varchar(255), email varchar(255), username varchar(255), password varchar(255), confirm_password varchar(255))";
-                        statement.executeUpdate(createTableSQL);
+                        ResultSet rs = statement.executeQuery("SELECT email FROM users WHERE email = '" + email + "'");
 
-                        // insert data
-                        String insertDataSQL = "INSERT INTO users (full_name, email, username, password, confirm_password) VALUES ('" + full_name + "', '" + username + "', '" + email + "', '" + password + "', '" + confirmPassword + "')";
-                        statement.executeUpdate(insertDataSQL);
+                        if(rs.next())
+                        {
+                            //dialogbox
+                        }
+                        else
+                        {
+                            // insert data
+                            String insertDataSQL = "INSERT INTO users (full_name, email, username, password, confirm_password) VALUES ('" + full_name + "', '" + username + "', '" + email + "', '" + password + "', '" + confirmPassword + "')";
+                            statement.executeUpdate(insertDataSQL);
+                        }
 
                         statement.close();
 
