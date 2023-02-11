@@ -37,6 +37,48 @@ public class HomeActivity extends AppCompatActivity {
                 /*Intent intent = new Intent(MainActivity.this, DetailActivity.class);
                 intent.putExtra("item", item);
                 startActivity(intent);*/
+                Intent intent = null;
+                switch(position)
+                {
+                    case 0:
+                        intent = new Intent(HomeActivity.this, GamesActivity.class);
+                        intent.putExtra("item", item);
+                        startActivity(intent);
+                        break;
+                    case 1:
+                        intent = new Intent(HomeActivity.this, BookRoomActivity.class);
+                        intent.putExtra("item", item);
+                        startActivity(intent);
+                        break;
+                    case 2:
+                        intent = new Intent(HomeActivity.this, LaundryActivity.class);
+                        intent.putExtra("item", item);
+                        startActivity(intent);
+                        break;
+                    case 3:
+                        intent = new Intent(HomeActivity.this, PaymentActivity.class);
+                        intent.putExtra("item", item);
+                        startActivity(intent);
+                        break;
+                    case 4:
+                        intent = new Intent(HomeActivity.this, CommunityActivity.class);
+                        intent.putExtra("item", item);
+                        startActivity(intent);
+                        break;
+                    case 5:
+                        intent = new Intent(HomeActivity.this, MaintenanceActivity.class);
+                        intent.putExtra("item", item);
+                        startActivity(intent);
+                        break;
+                    case 6:
+                        intent = new Intent(HomeActivity.this, RooftopActivity.class);
+                        intent.putExtra("item", item);
+                        startActivity(intent);
+                        break;
+                    default:
+                        break;
+                }
+
             }
         });
     }
